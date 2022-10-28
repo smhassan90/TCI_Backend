@@ -37,6 +37,8 @@ public class CoachRegistration {
     private String keyStrengths;
     @Column(name="serviceType")
     private String serviceType;
+    @Column(name="basicPayScale")
+    private int basicPayScale;
 
     @Column(name="UPDATE_BY")
     private String UPDATE_BY;
@@ -145,5 +147,13 @@ public class CoachRegistration {
 
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public int getBasicPayScale() {
+        return basicPayScale;
+    }
+
+    public void setBasicPayScale(int basicPayScale) {
+        this.basicPayScale = basicPayScale;
     }
 }

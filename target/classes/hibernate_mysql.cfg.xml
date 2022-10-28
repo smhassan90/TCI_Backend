@@ -45,6 +45,11 @@
         <mapping class="com.tci.entity.base.CLMIS" />
         <mapping class="com.tci.entity.login.User" />
         <mapping class="com.tci.entity.login.LoginStatus" />
+        <mapping class="com.tci.entity.mapping.CoachingLogCoachee" />
+        <mapping class="com.tci.entity.base.HIIRaiseAssessment" />
+        <mapping class="com.tci.entity.base.HIIInReach" />
+        <mapping class="com.tci.entity.base.HIIOutReach" />
+        <mapping class="com.tci.entity.base.HIIFHD" />
         <mapping class="com.tci.utils.IDMANAGER"/>
     </session-factory>
 

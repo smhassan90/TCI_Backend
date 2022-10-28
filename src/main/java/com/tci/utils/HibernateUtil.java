@@ -67,7 +67,7 @@ public class HibernateUtil {
         try {
             session = getSessionFactory().openSession();
             tx = session.beginTransaction();
-            session.save(obj);
+            obj = session.save(obj);
             tx.commit();
             isSuccessful = true;
         }catch(Exception e){
@@ -76,6 +76,24 @@ public class HibernateUtil {
             session.clear();session.close();
         }
         return isSuccessful;
+    }
+    public static Integer saveAndGetId(Object obj){
+        Session session = null;
+        Transaction tx =null;
+        boolean isSuccessful = false;
+        Integer id = null;
+        try {
+            session = getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            id = (Integer) session.save(obj);
+            tx.commit();
+            isSuccessful = true;
+        }catch(Exception e){
+            LOG.error(e);
+        }finally {
+            session.clear();session.close();
+        }
+        return id;
     }
 
     public static Object getDBObjectsQueryParameter(String queryString, String paramName, List<Long> param){

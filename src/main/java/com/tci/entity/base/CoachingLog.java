@@ -46,6 +46,8 @@ public class CoachingLog {
     private String areasOfImprovement;
     @Column(name = "recommendations")
     private String recommendations;
+    @Column(name="city")
+    private String city;
 
     @Column(name = "UPDATE_BY")
     private String UPDATE_BY;
@@ -203,5 +205,13 @@ public class CoachingLog {
 
     public void setCoachId(Integer coachId) {
         this.coachId = coachId;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

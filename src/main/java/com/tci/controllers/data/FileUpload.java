@@ -37,7 +37,7 @@ public class FileUpload {
     public String handleFileUpload(@RequestParam("file") MultipartFile formData ,@RequestParam("filename") String filename) {
         Response response = new Response();
         try {
-            formData.transferTo( new File("D:\\upload\\" + filename));
+            formData.transferTo( new File("D:\\apache-tomcat-8.5.70\\webapps\\uploads\\" + filename));
             response.setStatus(Codes.ALL_OK);
             response.setMessage("Successfully Uploaded");
 

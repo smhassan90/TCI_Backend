@@ -4,6 +4,8 @@ import com.tci.controllers.greensales.Codes;
 import com.tci.dal.AddDeleteResponse;
 import com.tci.dal.DropDownResponse;
 import com.tci.dal.KeyValue;
+import com.tci.entity.login.LoginStatus;
+import com.tci.entity.login.User;
 import com.tci.utils.HibernateUtil;
 import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
@@ -18,13 +20,19 @@ import java.util.List;
 @Controller
 public class AdminPanelRequests {
     @CrossOrigin(origins = "*" )
-    @RequestMapping(value = "/getAdminData", method = RequestMethod.GET, params = {"tableName"})
+    @RequestMapping(value = "/getAdminData", method = RequestMethod.GET, params = {"tableName","token"})
     @ResponseBody
-    public String getAdminData(String tableName){
+    public String getAdminData(String tableName, String token){
         String response = "";
-
+        String username = "";
         List<Object> objs = new ArrayList<>();
-        objs = (List<Object>) HibernateUtil.getDBObjects("from "+tableName+" order by id desc" );
+        List<LoginStatus> loginStatuses = (List<LoginStatus>) HibernateUtil.getDBObjects("from LoginStatus where token ='" + token + "'");
+
+        if(loginStatuses!=null && loginStatuses.size()>0) {
+            username += loginStatuses.get(0).getUsername();
+        }
+
+        objs = (List<Object>) HibernateUtil.getDBObjects("from "+tableName+" where UPDATE_BY='"+username+"' order by id desc" );
         response = new Gson().toJson(objs);
 
         return response;

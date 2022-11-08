@@ -36,7 +36,7 @@ public class LoginServerAttempt {
         loginResponse.setStatusCode(Codes.SOMETHING_WENT_WRONG);
         try {
 
-            List<User> users = (List<User>) HibernateUtil.getDBObjects("from User where username ='" + username + "' and password ='" + password + "'");
+            List<User> users = (List<User>) HibernateUtil.getDBObjects("from User where userName ='" + username + "' and password ='" + password + "'");
             if(users!=null && users.size()>0){
 
                 LoginStatus loginStatus = new LoginStatus();

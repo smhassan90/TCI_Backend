@@ -16,7 +16,6 @@ D:\workspace\TCI_Portal\src\main\java\com\tci\utils\LogToFile.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\entity\base\HIIRaiseAssessment.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\entity\base\HealthFacility.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\entity\base\CoachingLog.java
-D:\workspace\TCI_Portal\src\main\java\com\tci\entity\mapping\CoachingLogCoachee.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\dal\InfoActionPlanDAL.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\entity\base\HIIFHD.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\controllers\AdminPanelRequests.java
@@ -40,6 +39,7 @@ D:\workspace\TCI_Portal\src\main\java\com\tci\dal\OrderSummary.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\controllers\data\CoachingLogSave.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\dal\SPOProgress.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\dao\IStaffDatabaseDAO.java
+D:\workspace\TCI_Portal\src\main\java\com\tci\entity\mapping\FormCoacheeMapping.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\dao\StaffDAO.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\dao\IStaffVerificationDAO.java
 D:\workspace\TCI_Portal\src\main\java\com\tci\SpringBootHelloWorldApplication.java

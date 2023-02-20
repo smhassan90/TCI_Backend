@@ -1,10 +1,7 @@
 package com.tci.entity.base;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -15,6 +12,7 @@ import java.util.Date;
 @Table(name="HIIFHD")
 public class HIIFHD {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     private int id;
     @Column(name="city")

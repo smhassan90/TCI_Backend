@@ -12,6 +12,7 @@ com\tci\controllers\DBCheck.class
 com\tci\dal\AverageMonthly.class
 com\tci\dao\ServerLogin.class
 com\tci\dal\SPOProgress.class
+com\tci\entity\mapping\FormCoacheeMapping.class
 com\tci\utils\HibernateUtil.class
 com\tci\dal\GeneralResponse.class
 com\tci\dal\Response.class
@@ -47,7 +48,6 @@ com\tci\entity\login\LoginLog.class
 com\tci\entity\base\CoachingLog.class
 com\tci\controllers\AdminPanelRequests.class
 com\tci\dal\Dashboard.class
-com\tci\entity\mapping\CoachingLogCoachee.class
 com\tci\SpringBootHelloWorldApplication.class
 com\tci\dal\DataPart.class
 com\tci\dal\KeyValue.class

@@ -1,10 +1,7 @@
 package com.tci.entity.base;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -15,10 +12,13 @@ import java.util.Date;
 @Table(name="coachregistration")
 public class CoachRegistration {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     private int id;
     @Column(name="name")
     private String name;
+    @Column(name="city")
+    private String city;
     @Column(name="contactNumber")
     private String contactNumber;
     @Column(name="designation")
@@ -155,5 +155,13 @@ public class CoachRegistration {
 
     public void setBasicPayScale(int basicPayScale) {
         this.basicPayScale = basicPayScale;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

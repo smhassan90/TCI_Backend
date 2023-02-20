@@ -11,7 +11,7 @@ import java.util.Date;
 @Table(name="CoachingLog")
 public class CoachingLog {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
     @Column(name = "coachId")

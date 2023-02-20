@@ -5,7 +5,6 @@ import com.tci.dal.AddDeleteResponse;
 import com.tci.dal.DropDownResponse;
 import com.tci.dal.KeyValue;
 import com.tci.entity.login.LoginStatus;
-import com.tci.entity.login.User;
 import com.tci.utils.HibernateUtil;
 import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 @Controller
@@ -37,6 +37,7 @@ public class AdminPanelRequests {
 
         return response;
     }
+
     @CrossOrigin(origins = "*" )
     @RequestMapping(value = "/deleteAdminData", method = RequestMethod.GET, params = {"tablename","id","primarykey"})
     @ResponseBody

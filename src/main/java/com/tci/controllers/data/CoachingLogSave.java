@@ -4,8 +4,7 @@ package com.tci.controllers.data;
 import com.google.gson.Gson;
 import com.tci.controllers.greensales.Codes;
 import com.tci.dal.Response;
-import com.tci.entity.base.CoachingLog;
-import com.tci.entity.mapping.CoachingLogCoachee;
+import com.tci.entity.mapping.FormCoacheeMapping;
 import com.tci.utils.HibernateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,29 +22,36 @@ import java.util.ArrayList;
 @Controller
 public class CoachingLogSave {
     @CrossOrigin(origins = "*" )
-    @RequestMapping(value = "/addCoachingLog", method = RequestMethod.GET, params = {"token","data","ids"})
+    @RequestMapping(value = "/addFormCoachee", method = RequestMethod.GET, params = {"token","data","ids", "tableName"})
     @ResponseBody
-    public String addCoachingLog(String token, String data, String ids) {
+    public String addCoachingLog(String token, String data, String ids, String tableName) {
         boolean isSuccessful = false;
         Response response = new Response();
-        Integer coachingLogId = null;
-        ArrayList<CoachingLogCoachee> coachingLogCoachees = new ArrayList<>();
-        CoachingLogCoachee coachingLogCoachee = new CoachingLogCoachee();
+        Integer formId = null;
+        ArrayList<FormCoacheeMapping> formCoacheeMappings = new ArrayList<>();
+        FormCoacheeMapping formCoacheeMapping = new FormCoacheeMapping();
         String[] idsArray = ids.split("&");
         if(HibernateUtil.isLoginValid(token)){
-            CoachingLog coachingLog = new Gson().fromJson(data, CoachingLog.class);
-            if(coachingLog!=null){
-                coachingLogId = HibernateUtil.saveAndGetId(coachingLog);
-                if(coachingLogId!=null){
+            Object obj = null;
+            try {
+                Class cls = Class.forName("com.tci.entity.base." + tableName);
+                obj = new Gson().fromJson(data, cls);
+            }catch (Exception e){
+
+            }
+            if(obj!=null){
+                formId = HibernateUtil.saveAndGetId(obj);
+                if(formId!=null){
                     if(idsArray!=null){
                         for(String id : idsArray){
-                            coachingLogCoachee = new CoachingLogCoachee();
-                            coachingLogCoachee.setCoacheeId(Integer.valueOf(id.trim()));
-                            coachingLogCoachee.setCoachingLogId(coachingLogId);
-                            coachingLogCoachee.setUPDATE_BY(coachingLog.getUPDATE_BY());
-                            coachingLogCoachees.add(coachingLogCoachee);
+                            formCoacheeMapping = new FormCoacheeMapping();
+                            formCoacheeMapping.setCoacheeId(Integer.valueOf(id.trim()));
+                            formCoacheeMapping.setFormId(formId);
+                            formCoacheeMapping.setFormName(tableName);
+                            formCoacheeMapping.setUPDATE_BY("");
+                            formCoacheeMappings.add(formCoacheeMapping);
                         }
-                        isSuccessful = HibernateUtil.saveOrUpdateListMySQL(coachingLogCoachees);
+                        isSuccessful = HibernateUtil.saveOrUpdateListMySQL(formCoacheeMappings);
                         if(isSuccessful){
                             response.setStatus(Codes.ALL_OK);
                             response.setMessage("Data Inserted");

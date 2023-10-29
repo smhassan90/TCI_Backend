@@ -31,7 +31,6 @@ public class HIIRaiseAssessment {
     private int raiseScore;
     @Column(name="raiseFilename")
     private String raiseFilename;
-
     @Column(name="UPDATE_BY")
     private String UPDATE_BY;
     @Column(name="UPDATE_DATE")
